@@ -22,13 +22,13 @@ const Searchbar = () => {
             type="text"
             placeholder="Search anything..."
             value={search}
-            className='text-3xl border border-gray-400 p-3 rounded-2xl text-white'
+            className='text-lg border border-gray-400 p-2 rounded-2xl text-white outline-none w-100'
             onChange={(e) => {
               setsearch(e.target.value)
             }}
           />
 
-          <button className='text-3xl bg-[#596064] active:bg-blue-500 p-3 rounded-2xl active:scale-90 transition-all cursor-pointer'>
+          <button className={`${search.trim().length > 0 ? 'bg-blue-500' : 'bg-[#596064]'} text-lg bg-[#596064] p-2 hover:-translate-y-0.5 rounded-2xl active:scale-90 transition-all cursor-pointer`}>
             Search
           </button>
 

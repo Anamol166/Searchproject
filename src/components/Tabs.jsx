@@ -12,7 +12,7 @@ const Tabs = () => {
             {tabs.map(function (elem, index) {
                 <div className=""></div>
                 return <button
-                    className={`${elem == selectedtab ? 'bg-blue-500' : 'bg-[#596064]'} transition-all active:scale-90 cursor-pointer rounded-2xl p-3 text-3xl`}
+                    className={`${elem == selectedtab ? 'bg-blue-500' : 'bg-[#596064]'} hover:-translate-y-0.5 transition-all active:scale-90 cursor-pointer rounded-2xl p-2 text-lg`}
                     onClick={() => {
                         dispatch(setActiveTabs(elem))
                     }}

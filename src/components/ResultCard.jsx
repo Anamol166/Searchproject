@@ -1,20 +1,22 @@
 import React from 'react'
+import { Bookmark } from 'lucide-react';
 
-const ResultCard = (props) => {
-    console.log(props);
-
+const ResultCard = ({ item }) => {
     return (
-        <div className=' h-110 w-110'>
-            <div className="flex flex-col justify-center items-center gap-2 hover:scale-105 transition-all">
+        <div className="w-72">
+            <div className="flex flex-col gap-3 transition-all duration-200">
                 <img
-                    src={props.item.thumbnail}
-                    className='w-110 h-90 object-cover flex  justify-center rounded-2xl cursor-pointer '
+                    src={item.thumbnail}
+                    className="w-full h-64 object-cover rounded-2xl hover:scale-105 cursor-pointer"
                 />
-                <h1
-                    className="text-3xl text-white font-medium truncate w-full text-center"
-                >
-                    {props.item.title}
-                </h1>
+                <div className="flex flex-row gap-5 justify-between">
+                    <h1 className="text-lg text-white font-medium truncate text-center ">
+                        {item.title}
+                    </h1>
+                    <p className='text-white hover:scale-110'><Bookmark onClick={()=>{
+                        console.log(item.id)
+                    }}/></p>
+                </div>
             </div>
         </div>
     )

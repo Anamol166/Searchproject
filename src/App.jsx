@@ -2,6 +2,7 @@ import React from 'react'
 import Searchbar from './components/Searchbar'
 import Tabs from './components/Tabs'
 import ResultGrid from './components/ResultGrid'
+import PageButton from './components/PageButton'
 
 const App = () => {
   return (
@@ -9,6 +10,7 @@ const App = () => {
       <Searchbar/>
       <Tabs/>
       <ResultGrid/>
+      <PageButton/>
     </div>
   )
 }

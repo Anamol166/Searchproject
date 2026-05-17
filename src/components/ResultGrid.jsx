@@ -7,14 +7,14 @@ import ResultCard from './ResultCard'
 const ResultGrid = () => {
   const { query, actionTab, results, loading, error } = useSelector((store) => (store.search))
   const dispatch = useDispatch()
-
+  const page = useSelector((state) => state.page.page)
   const result = async () => {
     let Data = [];
     try {
       dispatch(setLoader(true))
       if (actionTab == 'Photos') {
         if (!query?.trim()) {
-          const response = await default_photo()
+          const response = await default_photo(page)
           Data = response.map((item) => ({
             id: item.id,
             type: 'image',
@@ -24,7 +24,7 @@ const ResultGrid = () => {
           }))
         }
         else {
-          const response = await Photo_sender(query)
+          const response = await Photo_sender(query,page)
           Data = response.results.map((item) => ({
             id: item.id,
             type: 'image',
@@ -36,7 +36,7 @@ const ResultGrid = () => {
       }
       else if (actionTab == 'Videos') {
         if (!query?.trim()) {
-          const response = await default_video()
+          const response = await default_video(page)
           Data = response.videos.map((item) => ({
             id: item.id,
             type: 'video',
@@ -47,7 +47,7 @@ const ResultGrid = () => {
           }))
         }
         else {
-          const response = await Video_sender(query)
+          const response = await Video_sender(query,page)
           Data = response.videos.map((item) => ({
             id: item.id,
             type: 'video',
@@ -60,7 +60,7 @@ const ResultGrid = () => {
       }
       else if (actionTab == 'GIF') {
         if (!query?.trim()) {
-          const response = await default_GIF()
+          const response = await default_GIF(page)
           Data = response.data.map((item) => ({
             id: item.id,
             type: item.type,
@@ -70,7 +70,7 @@ const ResultGrid = () => {
           }))
         }
         else {
-          const response = await GIF_sender(query)
+          const response = await GIF_sender(query,page)
           Data = response.data.map((item) => ({
             id: item.id,
             type: item.type,
@@ -89,7 +89,7 @@ const ResultGrid = () => {
 
   useEffect(function () {
     result()
-  }, [query, actionTab])
+  }, [query, actionTab, page])
 
   if (error) return <h1>error</h1>
 
@@ -98,7 +98,7 @@ const ResultGrid = () => {
   </div>
 
   return (
-    <div className='flex flex-row gap-6 flex-wrap justify-center items-center overflow-auto p-5'>
+    <div className='flex flex-row gap-4 flex-wrap justify-center items-center overflow-auto p-5'>
       {results.map((item, index) => {
         return (
           <div key={index}>
