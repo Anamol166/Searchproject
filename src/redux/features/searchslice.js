@@ -4,7 +4,7 @@ const search = createSlice({
     name: 'search',
     initialState: {
         query: '',
-        actionTab: 'photos',
+        actionTab: 'Photos',
         results: [],
         loading: false,
         error: null
@@ -39,6 +39,6 @@ export const {
     setQuery,
     setActiveTabs,
     setResults, setError,
-    clearResults
+    clearResults 
 } = search.actions
 export default search.reducer;

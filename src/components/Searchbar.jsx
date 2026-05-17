@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { setQuery } from '../redux/features/searchslice'
-import { GIF_sender, Photo_sender, Video_sender } from '../api/media'
 
 const Searchbar = () => {
   const [search, setsearch] = useState('')
@@ -16,8 +15,6 @@ const Searchbar = () => {
           onSubmit={(e) => {
             e.preventDefault()
             usedispatch(setQuery(search))
-            console.log(query)
-            setsearch('')
           }}
         >
 
@@ -25,13 +22,13 @@ const Searchbar = () => {
             type="text"
             placeholder="Search anything..."
             value={search}
-            className='text-3xl border border-gray-400 p-3 rounded-2xl'
+            className='text-3xl border border-gray-400 p-3 rounded-2xl text-white'
             onChange={(e) => {
               setsearch(e.target.value)
             }}
           />
 
-          <button className='text-3xl bg-gray-400 hover:bg-gray-300 p-3 rounded-2xl active:scale-90'>
+          <button className='text-3xl bg-[#596064] active:bg-blue-500 p-3 rounded-2xl active:scale-90 transition-all cursor-pointer'>
             Search
           </button>
 
