@@ -25,21 +25,25 @@ const ResultCard = ({ item }) => {
     }
 
     return (
-        <div className="w-72">
+        <div className="w-full max-w-70 sm:w-72 mx-auto">
             <div className="flex flex-col gap-3 transition-all duration-200">
                 <img
                     src={item.thumbnail}
                     onClick={handleImageClick}
-                    className="w-full h-64 object-cover rounded-2xl hover:scale-105 cursor-pointer"
+                    className="w-full h-52 sm:h-64 object-cover rounded-2xl hover:scale-105 cursor-pointer transition-transform"
                 />
-                <div className="flex flex-row gap-5 justify-between">
-                    <h1 className="text-lg text-white font-medium truncate text-center ">
+                <div className="flex flex-row items-center justify-between gap-3">
+                    <h1 className="text-sm sm:text-lg text-white font-medium truncate flex-1">
                         {item.title}
                     </h1>
-                    <p className='text-white hover:scale-120 cursor-pointer' title='Add To Collection'>
-                        <Bookmark
-                            fill={isSaved ? 'white' : 'none'}
-                            onClick={AddingFav} /></p>
+
+                    <button
+                        onClick={AddingFav}
+                        className="text-white hover:scale-110 cursor-pointer active:scale-90 transition-transform shrink-0"
+                        title="Add To Collection"
+                    >
+                        <Bookmark fill={isSaved ? 'white' : 'none'} />
+                    </button>
                 </div>
             </div>
         </div>

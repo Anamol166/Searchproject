@@ -8,17 +8,17 @@ const Tabs = () => {
 
     const tabs = ['Photos', 'Videos', 'GIF']
     return (
-        <div className='flex my-4 items-center justify-center flex-row gap-4 w-full'>
-            {tabs.map(function (elem, index) {
-                <div className=""></div>
-                return <button
-                    className={`${elem == selectedtab ? 'bg-blue-500' : 'bg-[#596064]'} hover:-translate-y-0.5 transition-all active:scale-90 cursor-pointer rounded-2xl p-2 text-lg`}
-                    onClick={() => {
-                        dispatch(setActiveTabs(elem))
-                    }}
-                    key={index}
-                >{elem}
-                </button>
+        <div className='flex flex-wrap my-4 items-center justify-center gap-2 sm:gap-4 w-full px-2'>
+            {tabs.map((elem, index) => {
+                return (
+                    <button
+                        key={index}
+                        className={`${elem === selectedtab ? 'bg-blue-500' : 'bg-[#596064]'} text-xs sm:text-lg px-3 py-2 rounded-2xl hover:-translate-y-0.5 transition-all active:scale-90 cursor-pointer`}
+                        onClick={() => dispatch(setActiveTabs(elem))}
+                    >
+                        {elem}
+                    </button>
+                )
             })}
         </div>
     )

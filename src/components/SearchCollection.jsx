@@ -3,19 +3,17 @@ import { useDispatch } from 'react-redux'
 import { setQuery } from '../redux/features/searchslice'
 
 const SearchCollection = () => {
-
     const [search, setsearch] = useState("")
     const dispatch = useDispatch()
 
     return (
-        <div className='h-full flex justify-center items-center mt-3'>
-
+        <div className="w-full flex justify-center px-2 sm:px-4 mt-3">
             <form
-                className='flex flex-row gap-3'
                 onSubmit={(e) => {
                     e.preventDefault()
                     dispatch(setQuery(search))
                 }}
+                className="w-full max-w-md flex flex-row gap-2 sm:gap-3"
             >
 
                 <input
@@ -23,17 +21,20 @@ const SearchCollection = () => {
                     placeholder="Search your saved..."
                     value={search}
                     onChange={(e) => setsearch(e.target.value)}
-                    className='text-lg border border-gray-400 p-2 rounded-2xl text-white outline-none w-100'
+                    className="flex-1 min-w-0 text-sm sm:text-base border border-gray-400 bg-transparent text-white px-3 py-2 rounded-xl outline-none focus:border-blue-500"
                 />
 
                 <button
                     type="submit"
-                    className={`${search.trim().length > 0 ? 'bg-blue-500' : 'bg-[#596064]'} text-lg bg-[#596064] p-2 hover:-translate-y-0.5 rounded-2xl active:scale-90 transition-all cursor-pointer`}>
+                    className={`shrink-0 cursor-pointer text-xs sm:text-sm px-3 py-2 rounded-xl transition active:scale-95 hover:-translate-y-0.5 ${
+                        search.trim().length > 0
+                            ? 'bg-blue-500 text-white'
+                            : 'bg-[#596064] text-white'
+                    }`}
+                >
                     Search
                 </button>
-
             </form>
-
         </div>
     )
 }

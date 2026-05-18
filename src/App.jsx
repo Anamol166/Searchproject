@@ -8,14 +8,19 @@ import Footer from './components/Footer'
 import NotFound from './components/NotFound'
 const App = () => {
   return (
-    <div>
-      <Header />
+    <div className="min-h-screen w-full overflow-x-hidden flex flex-col bg-[#0b0f19] text-white">
+      <div className="sticky top-0 z-50 w-full bg-[#0b0f19] border-b border-slate-800">
+        <Header />
+      </div>
       <DetailModal />
-      <Routes>
-        <Route path='/' element={<Mainpage />} />
-        <Route path='/collection' element={<Collection />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <main className="flex-1 w-full overflow-x-hidden">
+        <Routes>
+          <Route path="/" element={<Mainpage />} />
+          <Route path="/collection" element={<Collection />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </main>
+
       <Footer />
     </div>
   )

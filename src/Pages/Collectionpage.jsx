@@ -14,42 +14,35 @@ const Collectionpage = () => {
     )
 
     return (
-        <div className="min-h-screen flex flex-col bg-[#0b0f19]">
-
+        <div className="w-full min-h-screen flex flex-col bg-[#0b0f19] px-3 sm:px-6 lg:px-10 py-4 gap-4">
             <SearchCollection />
-
-            <div className="flex gap-4 justify-center p-4">
+            <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
                 <button
                     onClick={() => setView('collection')}
-                    className={`px-6 py-2 rounded-lg font-semibold transition ${
-                        view === 'collection'
+                    className={`w-full sm:w-auto px-5 py-2 rounded-lg font-semibold transition ${view === 'collection'
                             ? 'bg-blue-600 text-white'
                             : 'bg-slate-700 text-slate-300 hover:bg-slate-600'
-                    }`}
+                        }`}
                 >
                     Collection ({collection.length})
                 </button>
-
                 <button
                     onClick={() => setView('albums')}
-                    className={`px-6 py-2 rounded-lg font-semibold transition ${
-                        view === 'albums'
+                    className={`w-full sm:w-auto px-5 py-2 rounded-lg font-semibold transition ${view === 'albums'
                             ? 'bg-blue-600 text-white'
                             : 'bg-slate-700 text-slate-300 hover:bg-slate-600'
-                    }`}
+                        }`}
                 >
                     Albums
                 </button>
             </div>
-
-            <div className="flex-1">
+            <div className="flex-1 w-full">
                 {view === 'collection' ? (
                     <CollectionGrid items={filtered} />
                 ) : (
                     <AlbumsView />
                 )}
             </div>
-
         </div>
     )
 }

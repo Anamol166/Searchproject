@@ -9,25 +9,36 @@ const PageButton = () => {
     const [pagenumber, setpagenumber] = useState(page)
     const nextPage = () => {
         dispatch(setPage(page + 1))
-        console.log(page);
     }
     const prevpage = () => {
-        if (page>1){
+        if (page > 1) {
             dispatch(setPage(page - 1))
         }
     }
-    const valuepage = () =>{
-        dispatch(setPage(pagenumber))
+    const valuepage = () => {
+        const num = Number(pagenumber)
+        if (!isNaN(num) && num > 0) {
+            dispatch(setPage(num))
+        }
     }
+
     return (
-        <div className='flex flex-row gap-4 justify-center items-center m-4' >
-            <button className='btn' disabled={page === 1} onClick={prevpage}>Prev</button>
-            <input placeholder='Page...' className='text-white rounded-2xl p-3'
-            value={pagenumber} onChange={(e) =>{
-               setpagenumber(e.target.value)
-            }}>
-            </input><button className="btn" onClick={valuepage}>Jump</button>
-            <button className='btn' onClick={nextPage}>Next</button>
+        <div className="flex flex-wrap gap-2 justify-center items-center px-2 py-3 w-full">
+            <button className="btn text-xs sm:text-sm" disabled={page === 1} onClick={prevpage}>
+                Prev
+            </button>
+            <input
+                placeholder="Page..."
+                className="text-white rounded-2xl p-2 sm:p-3 w-16 sm:w-24 text-center outline-none"
+                value={pagenumber}
+                onChange={(e) => setpagenumber(e.target.value)}
+            />
+            <button className="btn text-xs sm:text-sm" onClick={valuepage}>
+                Jump
+            </button>
+            <button className="btn text-xs sm:text-sm" onClick={nextPage}>
+                Next
+            </button>
         </div>
     )
 }
