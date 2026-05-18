@@ -28,7 +28,7 @@ body {
     conic-gradient(from 90deg at 10px 10px,#0000 90deg,#fff 0) content-box,
     conic-gradient(from -90deg at 40px 40px,#0000 90deg,#fff 0) content-box,
     #000;
-  animation: l11 2s infinite;
+  animation: l11 2s infinite; 
   backface-visibility: hidden;
   will-change: background-position;
 }

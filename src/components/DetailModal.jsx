@@ -117,7 +117,7 @@ const DetailModal = () => {
 
                 <button
                     onClick={() => dispatch(closeDetail())}
-                    className="fixed top-4 right-4 text-gray-300 p-2 rounded-full hover:bg-slate-800 hover:text-white z-50"
+                    className="fixed top-4 right-4 z-60 text-gray-300 p-2 rounded-full bg-slate-900/50 backdrop-blur-sm hover:bg-slate-800 hover:text-white transition-colors"
                 >
                     <X size={24} />
                 </button>
