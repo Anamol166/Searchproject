@@ -20,7 +20,7 @@ const SearchCollection = () => {
 
                 <input
                     type="text"
-                    placeholder="Search anything..."
+                    placeholder="Search your saved..."
                     value={search}
                     onChange={(e) => setsearch(e.target.value)}
                     className='text-lg border border-gray-400 p-2 rounded-2xl text-white outline-none w-100'

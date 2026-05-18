@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { Bookmark } from 'lucide-react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCollection, removeCollection } from '../redux/features/collectionslide';
+import { setSelectedItem } from '../redux/features/detailslide';
 import toast from "react-hot-toast";
 
 const ResultCard = ({ item }) => {
@@ -19,11 +20,16 @@ const ResultCard = ({ item }) => {
         }
     }
 
+    const handleImageClick = () => {
+        dispatch(setSelectedItem(item))
+    }
+
     return (
         <div className="w-72">
             <div className="flex flex-col gap-3 transition-all duration-200">
                 <img
                     src={item.thumbnail}
+                    onClick={handleImageClick}
                     className="w-full h-64 object-cover rounded-2xl hover:scale-105 cursor-pointer"
                 />
                 <div className="flex flex-row gap-5 justify-between">
