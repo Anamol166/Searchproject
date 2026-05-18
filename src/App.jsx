@@ -1,16 +1,17 @@
 import React from 'react'
-import Searchbar from './components/Searchbar'
-import Tabs from './components/Tabs'
-import ResultGrid from './components/ResultGrid'
-import PageButton from './components/PageButton'
-
+import { Routes, Route } from 'react-router-dom'
+import Mainpage from './Pages/Mainpage'
+import Header from './components/Header'
+import Collection from './Pages/Collectionpage'
 const App = () => {
   return (
     <div>
-      <Searchbar/>
-      <Tabs/>
-      <ResultGrid/>
-      <PageButton/>
+      <Header />
+      <Routes>
+        <Route path='/' element={<Mainpage />} />
+        <Route path='/collection' element={<Collection/>} />
+      </Routes>
+
     </div>
   )
 }

@@ -7,10 +7,15 @@ const collection = createSlice({
     },
     reducers: {
         setCollection(state, action) {
-            state.items = action.payload
+            state.items.push(action.payload)
+        },
+        removeCollection(state, action) {
+            state.items = state.items.filter(
+                (item) => item.id !== action.payload
+            )
         }
     }
 })
 
-export const { setCollection } = collection.actions
+export const { setCollection, removeCollection } = collection.actions
 export default collection.reducer

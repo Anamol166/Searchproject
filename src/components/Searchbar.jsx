@@ -1,14 +1,13 @@
 import { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { setQuery } from '../redux/features/searchslice'
 
 const Searchbar = () => {
   const [search, setsearch] = useState('')
   const usedispatch = useDispatch()
-  const query = useSelector((state) => state.search.query)
   return (
     <>
-      <div className='h-full flex justify-center items-center'>
+      <div className='h-full flex justify-center items-center mt-3'>
 
         <form
           className='flex flex-row gap-3'
