@@ -20,7 +20,7 @@ const PageButton = () => {
         dispatch(setPage(pagenumber))
     }
     return (
-        <div className='flex flex-row gap-4 justify-center items-center' >
+        <div className='flex flex-row gap-4 justify-center items-center m-4' >
             <button className='btn' disabled={page === 1} onClick={prevpage}>Prev</button>
             <input placeholder='Page...' className='text-white rounded-2xl p-3'
             value={pagenumber} onChange={(e) =>{

@@ -46,7 +46,7 @@ const AlbumsView = () => {
                 <p className="text-white text-center w-full">
                     No albums yet. Start saving images to create albums.
                 </p>
-            </div>
+            </div >
         )
     }
 

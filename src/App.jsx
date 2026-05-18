@@ -4,7 +4,7 @@ import Mainpage from './Pages/Mainpage'
 import Header from './components/Header'
 import Collection from './Pages/Collectionpage'
 import DetailModal from './components/DetailModal'
-
+import Footer from './components/Footer'
 const App = () => {
   return (
     <div>
@@ -14,7 +14,7 @@ const App = () => {
         <Route path='/' element={<Mainpage />} />
         <Route path='/collection' element={<Collection/>} />
       </Routes>
-
+      <Footer />
     </div>
   )
 }

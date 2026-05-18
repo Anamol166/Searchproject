@@ -7,14 +7,19 @@ import SearchCollection from '../components/SearchCollection'
 const Collectionpage = () => {
     const collection = useSelector(state => state.collection.items)
     const query = useSelector(state => state.search.query)
-    const [view, setView] = useState('collection') 
+    const [view, setView] = useState('collection')
+
     const filtered = collection.filter(item =>
         item.title.toLowerCase().includes(query.toLowerCase())
     )
 
+    const isEmpty = filtered.length === 0
+
     return (
-        <div>
+        <div className="min-h-screen flex flex-col bg-[#0b0f19]">
+
             <SearchCollection />
+
             <div className="flex gap-4 justify-center p-4">
                 <button
                     onClick={() => setView('collection')}
@@ -26,6 +31,7 @@ const Collectionpage = () => {
                 >
                     Collection ({collection.length})
                 </button>
+
                 <button
                     onClick={() => setView('albums')}
                     className={`px-6 py-2 rounded-lg font-semibold transition ${
@@ -37,11 +43,23 @@ const Collectionpage = () => {
                     Albums
                 </button>
             </div>
-            {view === 'collection' ? (
-                <CollectionGrid items={filtered} />
-            ) : (
-                <AlbumsView />
-            )}
+
+            <div className="flex-1">
+                {view === 'collection' ? (
+                    isEmpty ? (
+                        <div className="flex items-center justify-center min-h-[50vh]">
+                            <p className="text-slate-500 text-sm text-center">
+                                No collection yet. Add images to build your collection.
+                            </p>
+                        </div>
+                    ) : (
+                        <CollectionGrid items={filtered} />
+                    )
+                ) : (
+                    <AlbumsView />
+                )}
+            </div>
+
         </div>
     )
 }

@@ -1,9 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { saveAlbumsToStorage, loadAlbumsFromStorage } from "../../utils/localStorage";
 
 const albums = createSlice({
     name: "albums",
     initialState: {
-        albums: [],
+        albums: loadAlbumsFromStorage(),
         selectedAlbum: null
     },
     reducers: {
@@ -15,16 +16,19 @@ const albums = createSlice({
                 createdAt: new Date().toISOString()
             }
             state.albums.push(newAlbum)
+            saveAlbumsToStorage(state.albums)
             return state
         },
         deleteAlbum(state, action) {
             state.albums = state.albums.filter(album => album.id !== action.payload)
+            saveAlbumsToStorage(state.albums)
         },
         addItemToAlbum(state, action) {
             const { albumId, item } = action.payload
             const album = state.albums.find(a => a.id === albumId)
             if (album && !album.items.find(i => i.id === item.id)) {
                 album.items.push(item)
+                saveAlbumsToStorage(state.albums)
             }
         },
         removeItemFromAlbum(state, action) {
@@ -32,6 +36,7 @@ const albums = createSlice({
             const album = state.albums.find(a => a.id === albumId)
             if (album) {
                 album.items = album.items.filter(i => i.id !== itemId)
+                saveAlbumsToStorage(state.albums)
             }
         },
         setSelectedAlbum(state, action) {
@@ -42,7 +47,11 @@ const albums = createSlice({
             const album = state.albums.find(a => a.id === albumId)
             if (album) {
                 album.name = name
+                saveAlbumsToStorage(state.albums)
             }
+        },
+        loadAlbums(state) {
+            state.albums = loadAlbumsFromStorage()
         }
     }
 })
@@ -53,6 +62,7 @@ export const {
     addItemToAlbum, 
     removeItemFromAlbum, 
     setSelectedAlbum,
-    renameAlbum
+    renameAlbum,
+    loadAlbums
 } = albums.actions
 export default albums.reducer
