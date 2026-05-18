@@ -5,7 +5,7 @@ import PageButton from '../components/PageButton'
 
 const Mainpage = () => {
     return (
-        <div className="w-full flex flex-col bg-[#0b0f19] px-2 sm:px-6 lg:px-10 py-3 gap-3 overflow-x-hidden">
+        <div className="w-full flex flex-col bg-[#2c4559] px-2 sm:px-6 lg:px-10 py-3 gap-3 overflow-x-hidden">
             <Searchbar />
             <Tabs />
             <div className="flex-1 w-full">

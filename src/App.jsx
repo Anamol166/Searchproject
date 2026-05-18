@@ -8,8 +8,8 @@ import Footer from './components/Footer'
 import NotFound from './components/NotFound'
 const App = () => {
   return (
-    <div className="min-h-screen w-full overflow-x-hidden flex flex-col bg-[#0b0f19] text-white">
-      <div className="sticky top-0 z-50 w-full bg-[#0b0f19] border-b border-slate-800">
+    <div className="min-h-screen w-full overflow-x-hidden flex flex-col bg-[#2c4559] text-white">
+      <div className="sticky top-0 z-50 w-full bg-[#2c4559] border-b border-slate-800">
         <Header />
       </div>
       <DetailModal />

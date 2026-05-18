@@ -14,7 +14,7 @@ const Collectionpage = () => {
     )
 
     return (
-        <div className="w-full min-h-screen flex flex-col bg-[#0b0f19] px-3 sm:px-6 lg:px-10 py-4 gap-4">
+        <div className="w-full min-h-screen flex flex-col bg-[#2c4559] px-3 sm:px-6 lg:px-10 py-4 gap-4">
             <SearchCollection />
             <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
                 <button

@@ -6,7 +6,7 @@ import { setQuery } from '../redux/features/searchslice'
 const Header = () => {
   const dispatch = useDispatch()
   return (
-    <div className="bg-[#121828] w-full h-16 flex items-center justify-between px-6 border-2 border-[#090c12]">
+    <div className="bg-[#1c2739] w-full h-16 flex items-center justify-between px-6 border-b-2 border-[#090c12]">
 
       <Link
         to="/"
