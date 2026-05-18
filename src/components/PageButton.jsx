@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import "./style/button.css"
 import { useDispatch, useSelector } from 'react-redux'
 import { setPage } from '../redux/features/page'
@@ -7,6 +7,9 @@ const PageButton = () => {
     const dispatch = useDispatch()
     const page = useSelector((state) => state.page.page)
     const [pagenumber, setpagenumber] = useState(page)
+    useEffect(() => {
+        setpagenumber(page)
+    }, [page])
     const nextPage = () => {
         dispatch(setPage(page + 1))
     }
@@ -21,10 +24,14 @@ const PageButton = () => {
             dispatch(setPage(num))
         }
     }
-
     return (
         <div className="flex flex-wrap gap-2 justify-center items-center px-2 py-3 w-full">
-            <button className="btn text-xs sm:text-sm" disabled={page === 1} onClick={prevpage}>
+            
+            <button
+                className="btn text-xs sm:text-sm"
+                disabled={page === 1}
+                onClick={prevpage}
+            >
                 Prev
             </button>
             <input
@@ -33,12 +40,20 @@ const PageButton = () => {
                 value={pagenumber}
                 onChange={(e) => setpagenumber(e.target.value)}
             />
-            <button className="btn text-xs sm:text-sm" onClick={valuepage}>
+            <button
+                className="btn text-xs sm:text-sm"
+                onClick={valuepage}
+            >
                 Jump
             </button>
-            <button className="btn text-xs sm:text-sm" onClick={nextPage}>
+
+            <button
+                className="btn text-xs sm:text-sm"
+                onClick={nextPage}
+            >
                 Next
             </button>
+
         </div>
     )
 }
