@@ -13,8 +13,6 @@ const Collectionpage = () => {
         item.title.toLowerCase().includes(query.toLowerCase())
     )
 
-    const isEmpty = filtered.length === 0
-
     return (
         <div className="min-h-screen flex flex-col bg-[#0b0f19]">
 
@@ -46,15 +44,7 @@ const Collectionpage = () => {
 
             <div className="flex-1">
                 {view === 'collection' ? (
-                    isEmpty ? (
-                        <div className="flex items-center justify-center min-h-[50vh]">
-                            <p className="text-slate-500 text-sm text-center">
-                                No collection yet. Add images to build your collection.
-                            </p>
-                        </div>
-                    ) : (
-                        <CollectionGrid items={filtered} />
-                    )
+                    <CollectionGrid items={filtered} />
                 ) : (
                     <AlbumsView />
                 )}

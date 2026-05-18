@@ -42,8 +42,8 @@ const AlbumsView = () => {
 
     if (!albums.length) {
         return (
-            <div className='flex flex-row gap-4 flex-wrap justify-center items-center overflow-auto p-5'>
-                <p className="text-white text-center w-full">
+            <div className="flex items-center justify-center min-h-[50vh]">
+                <p className="text-slate-500 text-sm text-center">
                     No albums yet. Start saving images to create albums.
                 </p>
             </div >

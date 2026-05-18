@@ -5,6 +5,7 @@ import Header from './components/Header'
 import Collection from './Pages/Collectionpage'
 import DetailModal from './components/DetailModal'
 import Footer from './components/Footer'
+import NotFound from './components/NotFound'
 const App = () => {
   return (
     <div>
@@ -12,7 +13,8 @@ const App = () => {
       <DetailModal />
       <Routes>
         <Route path='/' element={<Mainpage />} />
-        <Route path='/collection' element={<Collection/>} />
+        <Route path='/collection' element={<Collection />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </div>
