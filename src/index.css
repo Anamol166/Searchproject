@@ -38,3 +38,18 @@ body{
   75%  {background-position:0% 100%}
   100% {background-position:0% 0}
 }
+@media (max-width: 360px) {
+    .loader {
+        width: 45px;
+        border: 6px solid #0000;
+        padding: 3px;
+        filter: blur(2.5px) contrast(7);
+    }
+}
+@media (min-width: 361px) and (max-width: 460px) {
+    .loader {
+        width: 55px;
+        border: 7px solid #0000;
+        filter: blur(3px) contrast(8);
+    }
+}

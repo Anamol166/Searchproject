@@ -51,7 +51,7 @@ export async function default_video(page = 1, per_page = 20) {
 }
 
 export async function GIF_sender(q, page = 1, limit = 20) {
-    const response = await axios.get('http://api.giphy.com/v1/gifs/search', {
+    const response = await axios.get('https://api.giphy.com/v1/gifs/search', {
         params: {
             api_key: GIF_KEY,
             q,
@@ -63,7 +63,7 @@ export async function GIF_sender(q, page = 1, limit = 20) {
 }
 
 export async function default_GIF(page = 1, limit = 20) {
-    const response = await axios.get('http://api.giphy.com/v1/gifs/trending', {
+    const response = await axios.get('https://api.giphy.com/v1/gifs/trending', {
         params: {
             api_key: GIF_KEY,
             page,
