@@ -51,7 +51,7 @@ const AlbumsView = () => {
     }
 
     return (
-        <div className="min-h-screen bg-[#181a1b] px-4 py-6 md:px-10">
+        <div className="min-h-screen bg-[#2c4559] px-4 py-6 md:px-10">
 
             <h1 className="text-white text-2xl md:text-3xl font-bold mb-6">
                 Albums
@@ -62,7 +62,7 @@ const AlbumsView = () => {
                 {albums.map(album => (
                     <div
                         key={album.id}
-                        className="bg-[#1f1f1f] border border-[#2a2a2a] rounded-2xl overflow-hidden"
+                        className="bg-[#233545] border border-[#2a2a2a] rounded-2xl overflow-hidden"
                     >
 
                         <div className="p-4 flex justify-between items-start">
