@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { setQuery } from '../redux/features/searchslice'
+import { setPage } from '../redux/features/page'
 
 const Searchbar = () => {
   const [search, setsearch] = useState('')
@@ -12,6 +13,7 @@ const Searchbar = () => {
         onSubmit={(e) => {
           e.preventDefault()
           dispatch(setQuery(search))
+          dispatch(setPage(1))
         }}
         className="w-full max-w-md flex flex-row gap-2 sm:gap-3"
       >

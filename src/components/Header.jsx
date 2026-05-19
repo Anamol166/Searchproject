@@ -11,7 +11,11 @@ const Header = () => {
       <Link
         to="/"
         className="text-white text-2xl font-semibold cursor-pointer"
-        onClick={()=> dispatch(setQuery(''))}
+        onClick={() => {
+          dispatch(setQuery(''))
+          dispatch(setPage(1))
+        }
+        }
       >
         MediaVault
       </Link>
@@ -23,7 +27,7 @@ const Header = () => {
         Collection
       </Link>
 
-    </div>
+    </div >
   )
 }
 
